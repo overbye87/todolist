@@ -1,4 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const fetchTodos = createAsyncThunk(
+  "todos/fetchTodos",
+  async function () {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const data = await response.json();
+    return data;
+  }
+);
 //создали редьюсер срез "todos"
 const todoSlice = createSlice({
   // имя среза
@@ -6,6 +15,8 @@ const todoSlice = createSlice({
   //начальное состояние
   initialState: {
     todos: [],
+    status: null,
+    error: null,
   },
   //набор редьюсеров это события и логика обработки событий
   reducers: {
@@ -30,6 +41,17 @@ const todoSlice = createSlice({
       );
       toggledTodo.completed = !toggledTodo.completed;
     },
+  },
+  extraReducers: {
+    [fetchTodos.pending]: (state, action) => {
+      state.status = "loading";
+      state.error = null;
+    },
+    [fetchTodos.fulfilled]: (state, action) => {
+      state.status = "resolved";
+      state.todos = action.payload;
+    },
+    [fetchTodos.rejected]: (state, action) => {},
   },
 });
 

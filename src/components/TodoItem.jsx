@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { removeTodo, toggleTodoComplete } from "../store/todoSlice";
 
-const TodoItem = ({ id, text, completed }) => {
+const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
 
   return (
@@ -12,7 +12,7 @@ const TodoItem = ({ id, text, completed }) => {
         checked={completed}
         onChange={() => dispatch(toggleTodoComplete({ id }))}
       />
-      <span className="m-2">{text}</span>
+      <span className="m-2">{title}</span>
       <button
         className="btn btn-sm btn-danger"
         onClick={() => dispatch(removeTodo({ id }))}
