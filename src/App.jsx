@@ -5,6 +5,7 @@ import { addTodo } from "./store/todoSlice";
 
 import TodoList from "./components/TodoList";
 import InputField from "./components/InputField";
+
 import "./App.css";
 
 function App() {
@@ -14,22 +15,6 @@ function App() {
   const addTask = () => {
     dispatch(addTodo({ text }));
     setText("");
-  };
-
-  const removeTodo = (todoId) => {
-    // setTodos(todos.filter((todo) => todo.id !== todoId));
-  };
-
-  const toggleTodoComplete = (todoId) => {
-    // setTodos(
-    //   todos.map((todo) => {
-    //     if (todo.id !== todoId) return todo;
-    //     return {
-    //       ...todo,
-    //       completed: !todo.completed,
-    //     };
-    //   })
-    // );
   };
 
   return (
