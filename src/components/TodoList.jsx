@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ toggleTodoComplete, removeTodo }) => {
+  //хук для получения данных из хранилища
   const todos = useSelector((state) => state.app.todos);
 
   return (

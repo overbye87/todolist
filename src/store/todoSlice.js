@@ -10,9 +10,11 @@ const todoSlice = createSlice({
   //набор редьюсеров это события и логика обработки событий
   reducers: {
     //событие "добавить запись"
+    //данные переданные в событие через функцию диспетчера попадают в action
     addTodo(state, action) {
       state.todos.push({
         id: new Date().toISOString(),
+        //данные находятся в action.payload
         text: action.payload.text,
         completed: false,
       });

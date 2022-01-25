@@ -10,9 +10,11 @@ import "./App.css";
 
 function App() {
   const [text, setText] = useState("");
+  //достаем функцию диспетчер
   const dispatch = useDispatch();
 
   const addTask = () => {
+    //вызываем функцию диспетчер и передаем в нее событие (набор данных)
     dispatch(addTodo({ text }));
     setText("");
   };

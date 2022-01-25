@@ -2,7 +2,7 @@ const InputField = ({ text, handleInput, handleSubmit }) => {
   return (
     <div>
       <input
-        className="form-control form-control-lg mt-2"
+        className="form-control form-control-lg mt-4"
         id="floatingTextarea"
         value={text}
         onChange={(e) => {
