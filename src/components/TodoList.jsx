@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 
 const TodoList = ({ toggleTodoComplete, removeTodo }) => {
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state) => state.app.todos);
 
   return (
     <ul className="list-group list-group-numbered fs-5">

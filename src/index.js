@@ -1,13 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import store from "./store";
+import store from "./store/store";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* оборачиваем приложение в провайдер взятый из "react-redux" и передаем туда наш store*/}
     <Provider store={store}>
       <div className="container">
         <div className="row">
