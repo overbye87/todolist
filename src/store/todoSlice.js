@@ -17,6 +17,28 @@ export const fetchTodos = createAsyncThunk(
     }
   }
 );
+
+export const deleteTodo = createAsyncThunk(
+  "todos/deleteTodo",
+  async function (id, { rejectWithValue, dispatch }) {
+    try {
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/todos/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Can not delete case. Server error.");
+      }
+      dispatch(removeTodo({ id }));
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 //создали редьюсер срез "todos"
 const todoSlice = createSlice({
   // имя среза
@@ -61,6 +83,10 @@ const todoSlice = createSlice({
       state.todos = action.payload;
     },
     [fetchTodos.rejected]: (state, action) => {
+      state.status = "rejected";
+      state.error = action.payload;
+    },
+    [deleteTodo.rejected]: (state, action) => {
       state.status = "rejected";
       state.error = action.payload;
     },
