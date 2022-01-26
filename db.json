@@ -28,35 +28,5 @@
     "id": 5,
     "title": "Поехать на заправку",
     "completed": false
-  },
-  {
-    "userId": 1,
-    "id": 6,
-    "title": "Забрать почту",
-    "completed": false
-  },
-  {
-    "userId": 1,
-    "id": 7,
-    "title": "Купить продукты",
-    "completed": false
-  },
-  {
-    "userId": 1,
-    "id": 8,
-    "title": "Помыть пол",
-    "completed": true
-  },
-  {
-    "userId": 1,
-    "id": 9,
-    "title": "Поменять постельное",
-    "completed": false
-  },
-  {
-    "userId": 1,
-    "id": 10,
-    "title": "Принять душ",
-    "completed": true
   }
 ]
