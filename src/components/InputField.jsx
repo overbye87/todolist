@@ -10,7 +10,7 @@ const InputField = ({ text, handleInput, handleSubmit }) => {
         }}
       />
       <button className="btn btn-primary btn-lg mt-2" onClick={handleSubmit}>
-        Добавить
+        Add case
       </button>
     </div>
   );
