@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-//const serverAddress = "https://jsonplaceholder.typicode.com/todos";
-const serverAddress = "http://localhost:3001/todos";
+const serverAddress = "https://jsonplaceholder.typicode.com/todos";
+//const serverAddress = "http://localhost:3001/todos";
+//const serverAddress = "http://77.222.55.6:3001/todos";
 
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
