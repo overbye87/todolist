@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+//const serverAddress = "https://jsonplaceholder.typicode.com/todos";
+const serverAddress = "http://localhost:3001/todos";
+
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
   async function (_, { rejectWithValue }) {
     try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=10"
-      );
+      const response = await fetch(serverAddress);
       if (!response.ok) {
         throw new Error("Server Error!");
       }
@@ -22,12 +23,9 @@ export const deleteTodo = createAsyncThunk(
   "todos/deleteTodo",
   async function (id, { rejectWithValue, dispatch }) {
     try {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/todos/${id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const response = await fetch(`${serverAddress}/${id}`, {
+        method: "DELETE",
+      });
 
       if (!response.ok) {
         throw new Error("Can not delete case. Server error.");
